@@ -108,59 +108,26 @@ class _HomePageState extends State<HomePage>
       appBar: AppBar(
         title: Text("Calculator"),
       ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+      body: Column(
           children: <Widget>[
-            Expanded(
-              child: Container(
-                alignment: Alignment.bottomRight,
-                padding: EdgeInsets.all(10.0),
-                child: Text("$textToDisplay",
-                style: TextStyle(
-                    fontSize: 25.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600
-                ),
-                ),
-              ),
+            Container(
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+              child: Text("0", style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 30.0,
+              ),),
             ),
-            Row(
-              children: <Widget>[
-                custom_Button("9"),
-                custom_Button("8"),
-                custom_Button("7"),
-                custom_Button("+"),
-              ],
+            Container(
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+              child: Text("0", style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 30.0,
+              ),),
             ),
-            Row(
-              children: <Widget>[
-                custom_Button("6"),
-                custom_Button("5"),
-                custom_Button("4"),
-                custom_Button("-"),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                custom_Button("3"),
-                custom_Button("2"),
-                custom_Button("1"),
-                custom_Button("x"),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                custom_Button("C"),
-                custom_Button("0"),
-                custom_Button("="),
-                custom_Button("/"),
-              ],
-            ),
+
           ],
         ),
-      ),
-    );
+      );
   }
 }
 
