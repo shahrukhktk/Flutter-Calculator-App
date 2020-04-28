@@ -59,7 +59,14 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Expanded(
               child: Container(
-                child: Text("Output"),
+                alignment: Alignment.bottomRight,
+                padding: EdgeInsets.all(10.0),
+                child: Text("Output",
+                style: TextStyle(
+                    fontSize: 25.0, 
+                    fontWeight: FontWeight.w600
+                ),
+                ),
               ),
             ),
             Row(
