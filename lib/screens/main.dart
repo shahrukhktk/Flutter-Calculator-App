@@ -24,8 +24,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-
+class _HomePageState extends State<HomePage>
+{
   int firstNum;
   int secondNum;
   String result;
@@ -74,6 +74,11 @@ class _HomePageState extends State<HomePage> {
       }
   }
 
+  SetState()
+  {
+    textToDisplay = result;
+  }
+
   //custom button design
   Widget custom_Button(String btn_Value)
   {
@@ -82,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.all(10.0),
         child: MaterialButton(
           onPressed: () {
-            btnClicked(btn_Value)
+            btnClicked(btn_Value);
           },
           child: Text("$btn_Value", style: TextStyle(
             color: Colors.purple,
@@ -111,9 +116,10 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 alignment: Alignment.bottomRight,
                 padding: EdgeInsets.all(10.0),
-                child: Text("Output",
+                child: Text("$textToDisplay",
                 style: TextStyle(
-                    fontSize: 25.0, 
+                    fontSize: 25.0,
+                    color: Colors.black,
                     fontWeight: FontWeight.w600
                 ),
                 ),
