@@ -68,6 +68,10 @@ class _HomePageState extends State<HomePage> {
             result = (firstNum / secondNum).toString();
           }
       }
+    else
+      {
+        result = int.parse(textToDisplay + btnText).toString();
+      }
   }
 
   //custom button design
