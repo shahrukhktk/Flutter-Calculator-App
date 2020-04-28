@@ -37,15 +37,30 @@ class _HomePageState extends State<HomePage>
     setState(() {
       if(buttonText == "C")
         {
-          _equation = 0.toString();
-          _result = 0.toString();
+          _equation = " 0";
+          _result = " 0";
+          equationFontSize = 38.0;
+          resultFontSize = 48.0;
+        }
+      else if(buttonText == "×")
+        {
+          equationFontSize = 48.0;
+          resultFontSize = 38.0;
+          _equation = _equation.substring(0, _equation.length - 1);
+          if(_equation == "")
+            {
+              _equation =" 0";
+            }
         }
       else if(buttonText == "=")
         {
-
+          equationFontSize = 38.0;
+          resultFontSize = 48.0;
         }
       else
         {
+          equationFontSize = 48.0;
+          resultFontSize = 38.0;
           if(_equation == "0")
             {
               _equation = buttonText;
@@ -119,8 +134,8 @@ class _HomePageState extends State<HomePage>
                       TableRow(
                         children: [
                           CustomButton("C", 1.0, Colors.orangeAccent),
-                          CustomButton("x", 1.0, Colors.orangeAccent),
-                          CustomButton("/", 1.0, Colors.orangeAccent),
+                          CustomButton("×", 1.0, Colors.orangeAccent),
+                          CustomButton("÷", 1.0, Colors.orangeAccent),
                         ],
                       ),
                       TableRow(
@@ -160,6 +175,11 @@ class _HomePageState extends State<HomePage>
                   children: [
                     TableRow(
                       children: [
+                        CustomButton("*", 1.0, Colors.orangeAccent),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
                         CustomButton("+", 1.0, Colors.orangeAccent),
                       ],
                     ),
@@ -170,7 +190,7 @@ class _HomePageState extends State<HomePage>
                     ),
                     TableRow(
                       children: [
-                        CustomButton("=", 3.0, Colors.orangeAccent),
+                        CustomButton("=", 2.0, Colors.orangeAccent),
                       ],
                     ),
                   ]
