@@ -26,15 +26,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
 {
-  String equation = "";
-  String result = "";
-  String expression = "";
+  String _equation = "";
+  String _result = "";
+  String _expression = "";
   double equationFontSize = 38.0;
   double resultFontSize = 48.0;
 
-  void buttonPressed(String buttonText)
+  buttonPressed(String buttonText)
   {
-
+    setState(() {
+      
+    });
   }
 
   Widget CustomButton(String btnText, double btnHeight, Color btnColor)
@@ -74,15 +76,15 @@ class _HomePageState extends State<HomePage>
             Container(
               alignment: Alignment.centerRight,
               padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
-              child: Text("0", style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 30.0,
+              child: Text("$_equation", style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: equationFontSize,
               ),),
             ),
             Container(
               alignment: Alignment.centerRight,
               padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
-              child: Text("0", style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 30.0,
+              child: Text("$_result", style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: resultFontSize,
               ),),
             ),
             Expanded(
