@@ -26,10 +26,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
 {
+  String equation = "";
+  String result = "";
+  String expression = "";
+  double equationFontSize = 38.0;
+  double resultFontSize = 48.0;
 
   void buttonPressed(String buttonText)
   {
-    
+
   }
 
   Widget CustomButton(String btnText, double btnHeight, Color btnColor)
