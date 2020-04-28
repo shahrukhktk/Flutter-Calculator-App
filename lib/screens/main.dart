@@ -25,30 +25,76 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int firstNum;
+  int secondNum;
+  String result;
+  String textToDisplay = "";
+  String operationToPerform;
+
+  // button click function
+  void btnClicked(String btnText)
+  {
+    if(btnText == "C")
+      {
+        firstNum = 0;
+        secondNum = 0;
+        textToDisplay = "";
+        result = "";
+      }
+    else if(btnText == "+" || btnText == "-" || btnText == "x" || btnText == "/")
+      {
+        firstNum = int.parse(textToDisplay);
+        result = "";
+        operationToPerform = btnText;
+      }
+    else if(btnText == "=")
+      {
+        secondNum = int.parse(textToDisplay);
+        if(operationToPerform == "+")
+          {
+            result = (firstNum + secondNum).toString();
+          }
+        if(operationToPerform == "-")
+          {
+            result = (firstNum - secondNum).toString();
+          }
+        if(operationToPerform == "x")
+          {
+            result = (firstNum * secondNum).toString();
+          }
+        if(operationToPerform == "/")
+          {
+            result = (firstNum / secondNum).toString();
+          }
+      }
+  }
+
+  //custom button design
+  Widget custom_Button(String btn_Value)
+  {
+    return Expanded(
+      child: OutlineButton(
+        padding: EdgeInsets.all(10.0),
+        child: MaterialButton(
+          onPressed: () {
+            btnClicked(btn_Value)
+          },
+          child: Text("$btn_Value", style: TextStyle(
+            color: Colors.purple,
+            fontWeight: FontWeight.bold,
+            fontSize: 25.0,
+          ),
+          ),
+//            color: Colors.purple,
+          height: 50.0,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    Widget custom_Button(String btn_Value)
-    {
-      return Expanded(
-        child: OutlineButton(
-          padding: EdgeInsets.all(15.0),
-          child: MaterialButton(
-            onPressed: () {
-            },
-            child: Text("$btn_Value", style: TextStyle(
-              color: Colors.purple,
-              fontWeight: FontWeight.bold,
-              fontSize: 25.0,
-            ),
-            ),
-//            color: Colors.purple,
-            height: 50.0,
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Calculator"),
