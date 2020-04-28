@@ -35,7 +35,26 @@ class _HomePageState extends State<HomePage>
   buttonPressed(String buttonText)
   {
     setState(() {
-      
+      if(buttonText == "C")
+        {
+          _equation = 0;
+          _result = 0;
+        }
+      else if(buttonText == "=")
+        {
+            
+        }
+      else
+        {
+          if(_equation == "0")
+            {
+              _equation = buttonText;
+            }
+          else
+            {
+              _equation = _equation + buttonText;
+            }
+        }
     });
   }
 
