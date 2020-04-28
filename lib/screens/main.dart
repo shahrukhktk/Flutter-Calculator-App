@@ -50,6 +50,36 @@ class _HomePageState extends State<HomePage> {
                     height: 60.0,
                   ),
                 ),
+
+                Expanded(
+                  child: MaterialButton(
+                    onPressed: () {
+                    },
+                    child: Text("1", style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                    ),
+                    color: Colors.purple,
+                    height: 60.0,
+                  ),
+                ),
+
+                Expanded(
+                  child: MaterialButton(
+                    onPressed: () {
+                    },
+                    child: Text("1", style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                    ),
+                    color: Colors.purple,
+                    height: 60.0,
+                  ),
+                ),
               ],
             )
           ],
