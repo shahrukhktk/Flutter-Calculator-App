@@ -26,6 +26,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
 {
+
+  void buttonPressed(String buttonText)
+  {
+    
+  }
+
   Widget CustomButton(String btnText, double btnHeight, Color btnColor)
   {
     return Container(
@@ -41,7 +47,7 @@ class _HomePageState extends State<HomePage>
           ),
         ),
         padding: EdgeInsets.all(15.0),
-        onPressed: (){},
+        onPressed: () => buttonPressed(btnText),
         child: Text(
           "$btnText",
           style: TextStyle(
