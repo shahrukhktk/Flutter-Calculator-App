@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Calculator App",
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.deepPurple,
       ),
       home: HomePage(),
     );
@@ -149,9 +149,9 @@ class _HomePageState extends State<HomePage>
                     children: [
                       TableRow(
                         children: [
-                          CustomButton("C", 1.0, Colors.orangeAccent),
-                          CustomButton("×", 1.0, Colors.orangeAccent),
-                          CustomButton("÷", 1.0, Colors.orangeAccent),
+                          CustomButton("C", 1.0, Colors.redAccent),
+                          CustomButton("×", 1.0, Colors.deepPurple),
+                          CustomButton("÷", 1.0, Colors.deepPurple),
                         ],
                       ),
                       TableRow(
@@ -191,22 +191,22 @@ class _HomePageState extends State<HomePage>
                   children: [
                     TableRow(
                       children: [
-                        CustomButton("*", 1.0, Colors.orangeAccent),
+                        CustomButton("*", 1.0, Colors.deepPurple),
                       ],
                     ),
                     TableRow(
                       children: [
-                        CustomButton("+", 1.0, Colors.orangeAccent),
+                        CustomButton("+", 1.0, Colors.deepPurple),
                       ],
                     ),
                     TableRow(
                       children: [
-                        CustomButton("-", 1.0, Colors.orangeAccent),
+                        CustomButton("-", 1.0, Colors.deepPurple),
                       ],
                     ),
                     TableRow(
                       children: [
-                        CustomButton("=", 2.0, Colors.orangeAccent),
+                        CustomButton("=", 2.0, Colors.deepPurple),
                       ],
                     ),
                   ]
