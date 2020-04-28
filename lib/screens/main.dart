@@ -27,61 +27,73 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
+    Widget custom_Button(String btn_Value)
+    {
+      return Expanded(
+        child: OutlineButton(
+          padding: EdgeInsets.all(15.0),
+          child: MaterialButton(
+            onPressed: () {
+            },
+            child: Text("$btn_Value", style: TextStyle(
+              color: Colors.purple,
+              fontWeight: FontWeight.bold,
+              fontSize: 25.0,
+            ),
+            ),
+//            color: Colors.purple,
+            height: 50.0,
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Calculator"),
       ),
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
+            Expanded(
+              child: Container(
+                child: Text("Output"),
+              ),
+            ),
             Row(
               children: <Widget>[
-                Expanded(
-                  child: MaterialButton(
-                    onPressed: () {
-                    },
-                    child: Text("1", style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
-                    ),
-                    ),
-                    color: Colors.purple,
-                    height: 60.0,
-                  ),
-                ),
-
-                Expanded(
-                  child: MaterialButton(
-                    onPressed: () {
-                    },
-                    child: Text("1", style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
-                    ),
-                    ),
-                    color: Colors.purple,
-                    height: 60.0,
-                  ),
-                ),
-
-                Expanded(
-                  child: MaterialButton(
-                    onPressed: () {
-                    },
-                    child: Text("1", style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
-                    ),
-                    ),
-                    color: Colors.purple,
-                    height: 60.0,
-                  ),
-                ),
+                custom_Button("9"),
+                custom_Button("8"),
+                custom_Button("7"),
+                custom_Button("+"),
               ],
-            )
+            ),
+            Row(
+              children: <Widget>[
+                custom_Button("6"),
+                custom_Button("5"),
+                custom_Button("4"),
+                custom_Button("-"),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                custom_Button("3"),
+                custom_Button("2"),
+                custom_Button("1"),
+                custom_Button("x"),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                custom_Button("C"),
+                custom_Button("0"),
+                custom_Button("="),
+                custom_Button("/"),
+              ],
+            ),
           ],
         ),
       ),
