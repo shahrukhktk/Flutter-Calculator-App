@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Calculator App",
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.orange,
       ),
       home: HomePage(),
     );
@@ -26,59 +26,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
 {
-  int firstNum;
-  int secondNum;
-  String result;
-  String textToDisplay = "";
-  String operationToPerform;
-
-  // button click function
-  void btnClicked(String btnText)
-  {
-    if(btnText == "C")
-      {
-        firstNum = 0;
-        secondNum = 0;
-        textToDisplay = "";
-        result = "";
-      }
-    else if(btnText == "+" || btnText == "-" || btnText == "x" || btnText == "/")
-      {
-        firstNum = int.parse(textToDisplay);
-        result = "";
-        operationToPerform = btnText;
-      }
-    else if(btnText == "=")
-      {
-        secondNum = int.parse(textToDisplay);
-        if(operationToPerform == "+")
-          {
-            result = (firstNum + secondNum).toString();
-          }
-        if(operationToPerform == "-")
-          {
-            result = (firstNum - secondNum).toString();
-          }
-        if(operationToPerform == "x")
-          {
-            result = (firstNum * secondNum).toString();
-          }
-        if(operationToPerform == "/")
-          {
-            result = (firstNum / secondNum).toString();
-          }
-      }
-    else
-      {
-        result = int.parse(textToDisplay + btnText).toString();
-      }
-  }
-
-  SetState()
-  {
-    textToDisplay = result;
-  }
-
   Widget CustomButton(String btnText, double btnHeight, Color btnColor)
   {
     return Container(
@@ -104,29 +51,6 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
-
-  //custom button design
-//  Widget custom_Button(String btn_Value)
-//  {
-//    return Expanded(
-//      child: OutlineButton(
-//        padding: EdgeInsets.all(10.0),
-//        child: MaterialButton(
-//          onPressed: () {
-//            btnClicked(btn_Value);
-//          },
-//          child: Text("$btn_Value", style: TextStyle(
-//            color: Colors.purple,
-//            fontWeight: FontWeight.bold,
-//            fontSize: 25.0,
-//          ),
-//          ),
-////            color: Colors.purple,
-//          height: 50.0,
-//        ),
-//      ),
-//    );
-//  }
 
   @override
   Widget build(BuildContext context) {
@@ -162,9 +86,9 @@ class _HomePageState extends State<HomePage>
                     children: [
                       TableRow(
                         children: [
-                          CustomButton("C", 1.0, Colors.redAccent),
-                          CustomButton("x", 1.0, Colors.black54),
-                          CustomButton("/", 1.0, Colors.black54),
+                          CustomButton("C", 1.0, Colors.orangeAccent),
+                          CustomButton("x", 1.0, Colors.orangeAccent),
+                          CustomButton("/", 1.0, Colors.orangeAccent),
                         ],
                       ),
                       TableRow(
@@ -188,8 +112,37 @@ class _HomePageState extends State<HomePage>
                           CustomButton("3", 1.0, Colors.black54),
                         ],
                       ),
+                      TableRow(
+                        children: [
+                          CustomButton(".", 1.0, Colors.black54),
+                          CustomButton("0", 1.0, Colors.black54),
+                          CustomButton("00", 1.0, Colors.black54),
+                        ],
+                      ),
                     ],
                   ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  child: Table(
+                  children: [
+                    TableRow(
+                      children: [
+                        CustomButton("+", 1.0, Colors.orangeAccent),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        CustomButton("-", 1.0, Colors.orangeAccent),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        CustomButton("=", 3.0, Colors.orangeAccent),
+                      ],
+                    ),
+                  ]
+                ),
                 ),
               ],
             ),
