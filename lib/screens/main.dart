@@ -79,28 +79,54 @@ class _HomePageState extends State<HomePage>
     textToDisplay = result;
   }
 
-  //custom button design
-  Widget custom_Button(String btn_Value)
+  Widget CustomButton(String btnText, double btnHeight, Color btnColor)
   {
-    return Expanded(
-      child: OutlineButton(
-        padding: EdgeInsets.all(10.0),
-        child: MaterialButton(
-          onPressed: () {
-            btnClicked(btn_Value);
-          },
-          child: Text("$btn_Value", style: TextStyle(
-            color: Colors.purple,
-            fontWeight: FontWeight.bold,
-            fontSize: 25.0,
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.1 * btnHeight,
+      color: btnColor,
+      child: FlatButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0.0),
+          side: BorderSide(
+            color: Colors.white,
+            width: 1,
+            style: BorderStyle.solid,
           ),
+        ),
+        padding: EdgeInsets.all(15.0),
+        onPressed: (){},
+        child: Text(
+          "$btnText",
+          style: TextStyle(
+            fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white,
           ),
-//            color: Colors.purple,
-          height: 50.0,
         ),
       ),
     );
   }
+
+  //custom button design
+//  Widget custom_Button(String btn_Value)
+//  {
+//    return Expanded(
+//      child: OutlineButton(
+//        padding: EdgeInsets.all(10.0),
+//        child: MaterialButton(
+//          onPressed: () {
+//            btnClicked(btn_Value);
+//          },
+//          child: Text("$btn_Value", style: TextStyle(
+//            color: Colors.purple,
+//            fontWeight: FontWeight.bold,
+//            fontSize: 25.0,
+//          ),
+//          ),
+////            color: Colors.purple,
+//          height: 50.0,
+//        ),
+//      ),
+//    );
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +150,49 @@ class _HomePageState extends State<HomePage>
                 fontWeight: FontWeight.bold, fontSize: 30.0,
               ),),
             ),
-
+            Expanded(
+              child: Divider(),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  child: Table(
+                    children: [
+                      TableRow(
+                        children: [
+                          CustomButton("C", 1.0, Colors.redAccent),
+                          CustomButton("x", 1.0, Colors.black54),
+                          CustomButton("/", 1.0, Colors.black54),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          CustomButton("7", 1.0, Colors.black54),
+                          CustomButton("8", 1.0, Colors.black54),
+                          CustomButton("9", 1.0, Colors.black54),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          CustomButton("4", 1.0, Colors.black54),
+                          CustomButton("5", 1.0, Colors.black54),
+                          CustomButton("6", 1.0, Colors.black54),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          CustomButton("1", 1.0, Colors.black54),
+                          CustomButton("2", 1.0, Colors.black54),
+                          CustomButton("3", 1.0, Colors.black54),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       );
