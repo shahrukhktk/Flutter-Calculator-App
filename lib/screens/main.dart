@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main()
 {
@@ -37,8 +38,8 @@ class _HomePageState extends State<HomePage>
     setState(() {
       if(buttonText == "C")
         {
-          _equation = " 0";
-          _result = " 0";
+          _equation = 0.toString();
+          _result = 0.toString();
           equationFontSize = 38.0;
           resultFontSize = 48.0;
         }
@@ -49,13 +50,28 @@ class _HomePageState extends State<HomePage>
           _equation = _equation.substring(0, _equation.length - 1);
           if(_equation == "")
             {
-              _equation =" 0";
+              _equation = 0.toString();
             }
         }
       else if(buttonText == "=")
         {
           equationFontSize = 38.0;
           resultFontSize = 48.0;
+
+          _expression = _equation;
+          _expression = _expression.replaceAll("÷", "/");
+
+          try
+          {
+            Parser p = Parser();
+            Expression exp = p.parse(_expression);
+
+            ContextModel cm = ContextModel();
+            _result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          }catch(e)
+          {
+            _result = "Error";
+          }
         }
       else
         {
