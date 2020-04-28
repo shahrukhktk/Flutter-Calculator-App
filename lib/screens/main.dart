@@ -37,12 +37,12 @@ class _HomePageState extends State<HomePage>
     setState(() {
       if(buttonText == "C")
         {
-          _equation = 0;
-          _result = 0;
+          _equation = 0.toString();
+          _result = 0.toString();
         }
       else if(buttonText == "=")
         {
-            
+
         }
       else
         {
